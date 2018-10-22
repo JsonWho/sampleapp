@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+ @import url('https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet');
+
+
+
+.App {
+  text-align: center;
+  padding-top: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size:16px;
+
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.header > .active {
+
+  font-weight: bold;
+}
+
+a:link {
+
+	text-decoration: none;
+	color:#2c389c;
+}
+
+a:visited {
+
+	color: #2c389c;
+}
+
+
+.loginBox {
+
+	display: flex;
+    flex-wrap: wrap;
+    max-width: 185px;
+    margin: 0 auto;
+    padding-top: 20%;
+    justify-content:center;
+
+}
+
+.loginWrapper {
+	
+	color:#fff;
+}
+
+.loginWrapper button {
+
+	margin-top:15px;
+
+}
+
+
+

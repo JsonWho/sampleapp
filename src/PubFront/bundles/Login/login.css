@@ -1,0 +1,9 @@
+.loginWrapper {
+
+	color: #fff;
+}
+
+input.error {
+
+	background-color: red !important;
+}

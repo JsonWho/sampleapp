@@ -1,0 +1,26 @@
+.signupStepOne {
+
+	padding-top:40px;
+}
+
+.signupStepOne > h4 {
+	text-align: center;
+}
+
+.signupStepOne > a {
+
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 10px;	
+	margin: 15px auto 15px;
+	border: 1px solid white;
+	max-width: 380px;
+	width:80%;
+	border-radius: 2px;
+}
+
+.signupStepOne > a:hover {
+
+	background-color: rgba(0, 0, 0, 0.24);
+}

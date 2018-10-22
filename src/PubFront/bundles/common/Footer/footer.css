@@ -1,0 +1,110 @@
+.footer {
+
+	position: fixed;
+	height:50px;
+	left: 0;
+    bottom: 0;
+    z-index: 8;
+	background-color: #cc2000;
+	color:white;
+	width:100%;
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+
+	transition: height 0.3s cubic-bezier(0.1,0.2,0.25,1);
+}
+
+
+.footer.raise {
+
+	height:60vh;
+}
+
+
+
+.footer .fav {
+
+		border-radius: 2px;
+		width: 136px;
+		padding: 4px 6px 5px 6px;
+		cursor:pointer;
+		float: right;
+    	margin-right: 10px;
+}
+
+
+.footer .fav:active, .footer .fav:hover {
+
+	    background-color: #00000024;
+}
+
+.footer .favLinesWrapper {
+
+	padding: 0px 5px;
+	overflow: scroll;
+	height: 100%;
+}
+
+.footer a {
+
+	color: #fff;
+}
+
+.footer .favrow {
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	max-width: 650px;
+	margin: 0 auto;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	padding: 5px 0px 5px 0px;
+	margin-bottom: 2px;
+}
+
+.footer .favrow:hover, .footer .favrow:hover {
+
+	background-color: #00000024;
+}
+
+.footer .favrow > div:first-child {
+
+	flex-grow: 3;
+	flex-shrink:2;
+	flex-basis: 40%;
+}
+
+.footer .favrow > div:nth-child(2) {
+	flex-grow:1;
+	flex-basis:20%;
+	text-align: left;
+}
+
+.footer .favrow > div:nth-child(3) {
+
+	flex-grow:3;
+	flex-shrink:2;
+	flex-basis:40%;
+
+}
+.footer .favrow > div:nth-child(4) {
+
+	flex-grow:0;
+	padding-right:3px;
+	position: relative;
+}
+
+.footer .favrow > div svg {
+
+	border: 1px solid transparent;
+	right:0px;
+	top:0px;
+	z-index: 20;
+}
+
+.footer .favrow > div svg:hover,.footer .favrow > div svg:active  {
+
+	border-radius: 50%;
+	border: 1px solid #fff;
+}

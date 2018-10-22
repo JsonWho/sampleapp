@@ -1,0 +1,206 @@
+body {
+
+	background-color: #cc2000;
+
+}
+
+
+.wizardWrapper {
+	
+	background-color: #cc2000;
+	height: 100vh;
+	color:white;
+	text-align: center;
+}
+
+.stepWrapper {
+
+	min-height: 200px;
+	max-width: 680px;
+	margin: 0 auto;
+
+
+}
+
+
+
+ .stickyHeader {
+
+	min-height:80px;
+	position:fixed;
+	width: 100%;
+	padding-top: 20px;
+	top:0;
+	background-color: #cc2000;
+	border-bottom: 1px solid #fff;
+}
+
+ .stickyHeader > div > button {
+
+	margin: 20px 0px 20px;
+}
+
+.wizardWrapper > .stickyFooter {
+
+	height:65px;
+	height: auto;
+	position:fixed;
+	z-index: 1000;
+	width: 100%;
+	padding:20px 0px 20px;
+	background-color: #cc2000;
+	bottom: 0;
+    border-top: 1px solid #ea4527;
+
+}
+
+
+
+.stepWrapper .topTitle {
+
+	font-size: 18px;
+	font-weight: 500;
+}
+
+
+
+.stepWrapper > .buttonContainer {
+
+	display: flex;
+    justify-content: space-around;
+	align-items: start;
+	flex-wrap: wrap;
+	padding-top:30px;
+	max-width: 430px;
+	margin: 0 auto;
+	min-height: 150px;
+}
+
+
+
+.stepWrapper > .buttonContainer > .roundButton {
+
+	border-radius: 50%;
+	border: 2px solid white;
+	text-align: center;
+	height:38px;
+	width:38px;
+	border-color: #cc2000;
+	cursor: pointer;
+	order:1;
+}
+
+
+.stepWrapper > .buttonContainer > .roundButton:hover {
+
+	border-color: rgba(255,255,255,0.3);
+}
+
+
+.stepWrapper > .buttonContainer > .roundButton.active {
+
+	border-color: white;
+}
+
+
+.stepWrapper > .buttonContainer > .roundButton > svg {
+
+	font-size: 38px;
+}
+
+
+.stepWrapper > .buttonContainer > .roundButton > .label {
+
+	position: relative;
+	width: 100px;
+	text-align: center;
+	margin-left: -31px;
+}
+
+
+
+.stepWrapper > .buttonContainer > .infoBox {
+
+	display: none;
+	order:2;
+	width:100%;
+	font-size: 14px;
+	text-align: center;
+	margin-top:16px;
+    background-color: rgba(0,0,0,0.14);
+	min-height: 42px;
+}
+
+.stepWrapper > .buttonContainer > .infoBox > span {
+
+	text-align: center;
+	width: 100%;
+}
+
+.stepWrapper > .buttonContainer > .infoBox.show {
+
+	display: flex;
+	align-items: center;	
+}
+
+
+.stepWrapper > .optionList {
+
+	padding: 20px 10px 90px;
+	overflow: scroll;
+	height: 100%;
+    background-color: #cc2000;
+}
+
+
+.optionList .row {
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	max-width: 650px;
+	margin: 0 auto;
+	cursor: pointer;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	padding: 5px 0px 5px 0px;
+	margin-bottom: 12px;
+}
+
+.optionList .row:hover, .optionList .row.selected {
+
+	background-color: #00000024;
+}
+
+.optionList .row > div:first-child {
+
+	flex-grow: 3;
+	flex-shrink:2;
+	flex-basis: 40%;
+}
+
+.optionList .row > div:nth-child(2) {
+	flex-grow:1;
+	flex-basis:20%;
+	text-align: center;
+}
+
+.optionList .row > div:nth-child(3) {
+
+	flex-grow:3;
+	flex-shrink:2;
+	flex-basis:40%;
+
+}
+
+
+.rdw-editor-wrapper {
+
+	margin-top: 34px;
+}
+
+
+
+
+

@@ -1,0 +1,119 @@
+
+
+#listing {
+
+	padding: 0px 10px 0px 10px;
+    max-width: 754px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+
+.gallery_wrapper {
+	margin: 0 auto;
+	position: relative;
+}
+
+
+.gallery_wrapper .redBackdrop {
+	position: absolute;
+	top:0;
+	height:100%;
+	width:100%;
+	background-color: #cc2100;
+}
+
+
+.image-gallery .image-gallery-thumbnails {
+
+	border-right: 5px solid white;
+}
+
+
+
+.image-gallery-thumbnail.active {
+
+	border-color: #000 !important;
+}
+
+
+
+#listing {
+
+	padding-bottom: 60px;
+}
+
+
+#listing .info {
+
+	margin-top: 10px;
+
+}
+
+#listing .notBold {
+font-weight: normal;
+}
+
+#listing .topFieldContainer {
+
+	font-weight: bold;
+    color: white;
+    background-color: #cc2000;
+    border-top: 1px solid white;
+
+}
+
+#listing .topFieldContainer > .column > div, #listing .fieldContainer > .column > div {
+
+	padding: 4px;
+}
+
+
+#listing .topFieldContainer > .column:first-child > div {
+
+	border-right: 1px solid white;
+}
+
+
+#listing .fieldContainer {
+
+	margin-top: 1px;
+    background-color: #cc2000;
+    color:white;
+
+}
+
+#listing .fieldContainer > .column:nth-child(odd) > div {
+
+	text-align: right;
+	padding-right: 7%;
+}
+
+#listing .fieldContainer > .column:nth-child(even) > div {
+
+	text-align: left;
+    padding-left: 7%;
+
+}
+
+
+
+#listing .descriptionText {
+
+	text-align: left;
+	max-width: 450px;
+}
+
+
+
+@media (max-width: 768px) {
+
+	.image-gallery .image-gallery-thumbnails {
+
+	    border-right: 3px solid white;
+	}
+
+}
+
+

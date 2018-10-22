@@ -1,0 +1,123 @@
+#listingsroot {
+/*
+    -webkit-overflow-scrolling : touch !important;
+  overflow: auto !important;
+  height: 100% !important;
+*/
+}
+
+
+.listings {
+  padding:5px;
+  padding-top:20px;
+  padding-bottom: 55px;
+}
+
+
+.listings > a:link {
+
+text-decoration: none;
+
+}
+
+.listings > a:focus {
+  outline-width: 0;
+}
+
+.listings > a > .listing_container {
+  margin-bottom: 10px;
+  z-index: 4;
+  cursor: pointer;
+}
+
+
+.listings > a > .listing_container > .toprow {
+  height: 50px;
+  width: 100%;
+  display:flex;
+  justify-content: flex-start;
+  margin-bottom: 4px;
+}
+
+.listings > a > .listing_container > .toprow > .image {
+flex:none;
+width:50px;
+height:50px;
+background-color: #ccc;
+border-radius: 50%;
+}
+
+
+.listings > a > .listing_container > .toprow > .dsc {
+  line-height: 50px;
+  text-align: left;
+  padding-left: 4px;
+  color:black;
+}
+
+
+.listings > a > .listing_container > .toprow > .dsc > span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.listings > a > .listing_container > .substrip {
+height:20px;
+background-color: #cc2000;
+border-radius: 2px;
+align-items:center;
+color:white;
+display:flex;
+justify-content: flex-start;
+
+}
+
+
+.listings > a > .listing_container:hover > .substrip {
+
+background-color: #f44336;
+
+}
+
+
+.listings > a > .listing_container > .substrip > .name {
+padding-left: 4px;
+padding-right: 4px;
+
+}
+.listings > a > .listing_container > .substrip > .location_container {
+  display: flex;
+  flex:1;
+  justify-content:flex-end;
+  align-items: center;
+  height:inherit;
+}
+
+.listings > a > .listing_container > .substrip > .location_container > .location {
+ font-weight: bold;
+ font-size: 0.8em;
+ padding-right:4px;
+}
+
+.listings > a > .listing_container > .substrip > .pills {
+  display: flex;
+  flex:1;
+  justify-content:flex-start;
+  align-items: center;
+  height:inherit;
+}
+
+.listings > a > .listing_container > .substrip > .pills > div {
+ background-color: #282c34;
+ border-radius:4px;
+ display: inline-block;
+ font-weight: bold;
+ font-size: 0.8em;
+ padding-right:4px;
+  padding-left:4px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-right:4px;
+
+}

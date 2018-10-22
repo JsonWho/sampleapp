@@ -1,0 +1,178 @@
+.headroom-wrapper {
+
+	position: fixed;
+	z-index: 1000;
+}
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  zIndex: 4;
+  height: 84px !important;
+}
+.headroom--unfixed {
+  position: fixed;
+  transform: translateY(0px);
+}
+.headroom--scrolled {
+  transition: transform 100ms ease-in-out;
+}
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-36px);
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0px);
+}
+
+
+#header_wrapper {
+
+  width:100%;
+
+}
+
+
+
+#top_header {
+
+	height:35px;
+	background-color: #cc2000;
+	border-bottom: 1px solid #ea4527;
+	color: white;
+
+}
+
+#top_header > div {
+height:36px;
+}
+
+#top_header .menu_button_container
+{
+	float:right;
+}
+
+
+
+.sticky {
+}
+
+#top_header .brand {
+
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 5px;
+}
+
+#top_header .brand a {
+
+	color:white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#top_header .cat_select_button {
+
+ color:blue;
+}
+
+.sticky_header {
+	padding-top: 8px;
+	height:40px;
+	background-color: #cc2000;
+	color:white;
+	width:100%;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sticky_header .search_cell {
+
+	height:40px;
+	max-width: 350px;
+	padding-left: 5px;
+	float:left;
+}
+
+.sticky_header .search_cell input
+{
+	background-color: white;
+	padding-left: 4px;
+}
+
+.sticky_header .search_cell > div, .sticky_header .search_cell > form
+{
+	display:inline-block;
+}
+
+.sticky_header .search_cell form > div
+{
+	background-color: white;
+	margin-left: 3px;
+}
+
+.sticky_header .search_cell .search_button
+{
+		width:50px;
+		min-width: 50px;
+		min-height:18px;
+		height:32px;
+		padding:0px;
+		margin-left: 3px;
+		margin-top:-2px;
+}
+
+.sticky_header .advanced_button_container {
+
+	height:40px;
+	max-width: 50px;
+	float:left;
+	margin-left: 5px;
+}
+
+.sticky_header .advanced_button {
+
+	font-size: 0.55em;
+    color: white;
+    min-width: 55px;
+    min-height: 34px;
+    width: 55px;
+    line-height: 1.2em;
+    padding: 0px;
+    margin: 0;
+}
+
+
+
+
+/* modification to select for categories */
+.cat_select_control {
+
+	color: white !important;
+	margin-left: 4px;
+	font-size: 1.1em !important;
+}
+
+.cat_select_control:before {
+
+	border:none !important;
+}
+
+.cat_select_control svg {
+
+	color:white;
+}
+
+.cat_select_control > div > div {
+
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 25px;
+}
+/* End modification to select for categories */
+
+
+
+
