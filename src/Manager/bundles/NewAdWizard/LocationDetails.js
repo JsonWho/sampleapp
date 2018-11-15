@@ -92,7 +92,7 @@ const errorList = this.props.errorList;
 
 	return(
 
-		<div style={{padding:'50px 15px 30px 15px'}} className="stepWrapper">
+		<div style={{padding:'50px 15px 85px 15px'}} className="stepWrapper">
 
 		<ErrorList errorList={errorList} />
 

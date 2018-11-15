@@ -18,6 +18,8 @@ function ValidationHoc(FormPage) {
       this.reactSelectChangeHandler = this.reactSelectChangeHandler.bind(this);
       this.richTextEditorHandler = this.richTextEditorHandler.bind(this);
       this.prepForValidationSetValue = this.prepForValidationSetValue.bind(this);
+      this.setData = this.setData.bind(this);
+
       this.state = {
 
 
@@ -60,6 +62,21 @@ function ValidationHoc(FormPage) {
 
 
 
+    //extend HOC state with data loaded from backend
+    setData = (data) => {
+
+      let promise = new Promise((resolve,reject) => {
+
+        let stateCopy = Object.assign({},this.state);
+        let updatedState = Object.assign(stateCopy, data);
+        this.setState(updatedState, () => resolve('success') );
+    
+        });
+
+        return promise;
+    }
+
+    //initially fields in HOC
     setFields = (fieldData) => {
 
 
@@ -122,7 +139,7 @@ function ValidationHoc(FormPage) {
 
 
 
-    setTimeout(() => { this.externalFunc() }, 200);
+    // setTimeout(() => { this.externalFunc() }, 200);
   
 }
 
@@ -177,14 +194,14 @@ prepForValidationSetValue = (event_type, tname, tvalue, editorText = undefined )
             }
 
             valid ? this.setState({ [tname]: tvalue }, () => { 
-              this.externalFunc();
+              // this.externalFunc();
               this.initValidation( event_type, vrules, tobj, dirty, errname ) }) : null; 
 
 
           } else {
 
             this.setState({ [tname]: tvalue }, () => { 
-              this.externalFunc();
+              // this.externalFunc();
               this.initValidation( event_type, vrules, tobj, dirty, errname ) }); 
           }
         }
@@ -200,7 +217,7 @@ prepForValidationSetValue = (event_type, tname, tvalue, editorText = undefined )
     initValidation = ( event_type, vrules, tobj, isDirty, errname ) => {
 
       let vresult = validation.validate(event_type, vrules, tobj, isDirty, null, this.getVal);
-      this.setState((prev, props) => ({ [errname]: { errors: vresult.errors, isDirty: isDirty  } }));
+      this.setState((prev, props) => ({ [errname]: { errors: vresult.errors, isDirty: isDirty  } }), () => { this.externalFunc()});
 
       this.updateErrorList(tobj, vresult.errorListEntries);
 
@@ -363,7 +380,7 @@ prepForValidationSetValue = (event_type, tname, tvalue, editorText = undefined )
   render() {
       // ... and renders the wrapped component with the fresh data!
       // Notice that we pass through any additional props
-      return <FormPage saveEditorState={this.richTextEditorHandler} errorList={this.state.errorList} setFields={this.setFields} hasErrors={this.hasErrors} handleInputEvent={this.handleInputEvent} getHelperText={this.getHelperText} handleSubmit={this.handleSubmit} reactSelectChangeHandler={this.reactSelectChangeHandler} {...this.props} {...this.state} />;
+      return <FormPage setData={this.setData} saveEditorState={this.richTextEditorHandler} errorList={this.state.errorList} setFields={this.setFields} hasErrors={this.hasErrors} handleInputEvent={this.handleInputEvent} getHelperText={this.getHelperText} handleSubmit={this.handleSubmit} reactSelectChangeHandler={this.reactSelectChangeHandler} {...this.props} {...this.state} />;
     }
   };
 }

@@ -18,11 +18,17 @@ body {
 	min-height: 200px;
 	max-width: 680px;
 	margin: 0 auto;
-
-
 }
 
-
+.sticky_title {
+	position: fixed;
+	min-height: 50px;
+	padding: 10px 0px 10px 0px;
+	text-align: center;
+	width: 100%;
+	border-bottom: 1px solid white;
+	background-color: #cc2000;
+}
 
  .stickyHeader {
 

@@ -152,25 +152,37 @@ class JpuriWYSIWG extends Component {
       MAX_LENGTH: 20,
       remainingChar: null,
       remainingCharactersBeforeWarning: 5,
+      initializeAgain: true
     };
   }
 
+  // componentDidUpdate() {
 
+  //   if(this.props.loadInProgress && this.state.initializeAgain) {
+  //       this.setEditorState();
+  //       this.setState({initializeAgain: false });
+  //   }
+
+  // }
 
   componentDidMount() {
 
     this.setState({MAX_LENGTH: this.props.maxLength });
     this.setState({remainingCharactersBeforeWarning: this.props.remainingCharactersBeforeWarning });
 
-    if(this.props.editorState.raw['blocks']) {
+    if(this.props.editorState && this.props.editorState.raw['blocks']) {
 
-     let raw = this.props.editorState.raw;
-     let converted = convertFromRaw(raw);
-
-     let editorState = EditorState.createWithContent(converted, null);
-     this.setState({editorState: editorState });
+          this.setEditorState();
    }
 
+ }
+
+ setEditorState = () => {
+  let raw = this.props.editorState.raw;
+  let converted = convertFromRaw(raw);
+
+  let editorState = EditorState.createWithContent(converted, null);
+  this.setState({editorState: editorState });
  }
 
 
@@ -180,7 +192,7 @@ onBlur = (editorState) => {
 
 }
 
- onEditorStateChange: Function = (editorState, event_type = 'onChange') => {
+ onEditorStateChange = (editorState, event_type = 'onChange') => {
 
   this.setState({
    editorState: editorState
@@ -223,6 +235,7 @@ checkLength = (currentContent, plainText) => {
 
 render() {
   const { editorState } = this.state;
+
   return (
     <div>
     <Editor

@@ -30,13 +30,14 @@ class AdType extends React.Component {
 
 
 	mOver = event => {
+
 		let copy = Object.assign({}, this.state.keyVal);
 		copy.active_hover = event.currentTarget.id;
 		this.setState({ keyVal: copy });
 	}
 
-	 mOut = () => {
-		
+	 mOut = event => {
+
 		let copy = Object.assign({}, this.state.keyVal);
 		copy.active_hover = null;
 		this.setState({keyVal: copy});
@@ -52,6 +53,7 @@ class AdType extends React.Component {
 
 		let copy = Object.assign({}, this.state.keyVal);
 		copy.ad_type = event.currentTarget.id;
+		copy.active_hover = event.currentTarget.id;
 
 
 		this.setState({keyVal: copy }, this.saveStateToParent);
@@ -108,7 +110,7 @@ const ad_type = this.state.keyVal.ad_type;
 
 	    <div className="buttonContainer">
 
-		<div id="profile" onMouseOver={ this.mOver } onMouseOut={ this.mOut }  onClick={ this.bClick } className={'roundButton'+' '+ (ad_type == 'profile' ? 'active' : '') }>
+		<div id="profile" onTouchEnd={this.bClick} onMouseOver={ this.mOver } onMouseOut={ this.mOut }  onClick={ this.bClick } className={'roundButton'+' '+ (ad_type == 'profile' ? 'active' : '') }>
 			<FaceIcon/>
 			<div className="label">Individual</div>
 		</div>
@@ -123,7 +125,7 @@ const ad_type = this.state.keyVal.ad_type;
 
 
 
-		<div id="location" onMouseOver={ this.mOver } onMouseOut={ this.mOut }  onClick={ this.bClick } className={'roundButton'+' '+ (ad_type == 'location' ? 'active' : '') }>
+		<div id="location" onTouchEnd={this.bClick} onMouseOver={ this.mOver } onMouseOut={ this.mOut }  onClick={ this.bClick } className={'roundButton'+' '+ (ad_type == 'location' ? 'active' : '') }>
 			<StoreIcon/>
 		    <div className="label">Shop/Address</div>
 		</div>

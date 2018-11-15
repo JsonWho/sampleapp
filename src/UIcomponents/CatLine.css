@@ -1,0 +1,16 @@
+.catline.selected {
+    background-color: #00000024;
+}
+
+.catline:hover:not(.selected) {
+
+    background-color: #00000011;
+
+}
+
+.catline {
+
+    color: #fff;
+    padding: 15px 5px 15px 5px;
+    font-size: 18px;
+}

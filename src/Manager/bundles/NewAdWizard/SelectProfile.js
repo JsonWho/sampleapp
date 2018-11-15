@@ -24,6 +24,12 @@ class SelectProfile extends React.Component {
 
 		let state = this.props.stepState;
 		if(state && state.keyVal)  { 
+						
+						if(state.keyVal.selected_option && state.keyVal.selected_option.id !== 0 ) {
+							this.props.clearStepState('profile_details');
+						}
+
+
 						if(this.props.ad_type === state.keyVal.option_type)
 						this.setState((state), () => { this.sortOptions() });
 
@@ -47,11 +53,13 @@ class SelectProfile extends React.Component {
 
  	saveStateToParent = () => {
 			let state_copy = Object.assign({}, this.state);
-			this.props.saveStageState(state_copy);
+			return this.props.saveStageState(state_copy);
     }
 
 
 	optionClicked = (o) => {
+
+		this.props.clearStepState('profile_details');
 
 		this.setState({keyVal: {selected_option: o, option_type: this.props.ad_type }}, this.saveStateToParent);
 
@@ -77,9 +85,13 @@ class SelectProfile extends React.Component {
 
 
 
-	  				this.saveStateToParent(); 
+	  				this.saveStateToParent().then((result) => { 
+									
+						this.props.nextButtonClicked();
+
+					  }); 
 	  				// setTimeout(() => this.props.nextButtonClicked(), 50);
-	  				this.props.nextButtonClicked();
+	  				// this.props.nextButtonClicked();
 	  });
 
 	}

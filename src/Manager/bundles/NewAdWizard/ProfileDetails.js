@@ -16,6 +16,32 @@ import ErrorList from '../../../UIcomponents/ErrorList';
 import Grid from '@material-ui/core/Grid';
 
 
+const getData = () => (
+
+    
+    
+    
+         [
+          { id: 11, name:'Jaz Brown', suburb: 'Surry Hills', age: 23, background:{ label: 'Vanilla', value: 'vanilla'}, bodytype:'Petite', description: {raw:{"blocks":[{"key":"mjlp","text":"how dee","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"ck3hk","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}},{"key":"8c64k","text":"doo yaaaabk","type":"unstyled","depth":0,"inlineStyleRanges":[{"offset":0,"length":11,"style":"BOLD"}],"entityRanges":[],"data":{}}],"entityMap":{}},text: undefined}},
+          { id: 12, name:'Mercy', suburb: 'Randwick', age: 22, background:'Chinese' },
+          { id: 13, name:'Jacky', suburb: 'Refern', age: 27, background:'French'}, 
+          { id: 113, name:'Jaz Brown', suburb: 'Surry Hills', age: 23, background:'Korean'  },
+          { id: 1233, name:'Mercy', suburb: 'Randwick', age: 22, background:'Chinese' },
+          { id: 103, name:'Jacky', suburb: 'Refern', age: 27, background:'French'}, 
+          { id: 119, name:'Jaz Brown', suburb: 'Surry Hills', age: 23, background:'Korean'  },
+          { id: 123, name:'Mercy', suburb: 'Randwick', age: 22, background:'Chinese' },
+          { id: 133, name:'Jacky', suburb: 'Refern', age: 27, background:'French'}, 
+          { id: 161, name:'Jaz Brown', suburb: 'Surry Hills', age: 23, background:'Korean'  },
+          { id: 162, name:'Mercy', suburb: 'Randwick', age: 22, background:'Chinese' },
+          { id: 163, name:'Jacky', suburb: 'Refern', age: 27, background:'French'}, 
+          { id: 111, name:'Jaz Brown', suburb: 'Surry Hills', age: 23, background:'Korean'  },
+          { id: 112, name:'Mercy', suburb: 'Randwick', age: 22, background:'Chinese' },
+          { id: 118, name:'Jacky', suburb: 'Refern', age: 27, background:'French'}, 
+          ]
+
+    
+
+)
 
 
 
@@ -26,7 +52,9 @@ class ProfileDetails extends React.Component {
 
 	    this.state = {
 	      required_values: [],
-	      keyVal: {},
+		  keyVal: {},
+		  profile_id: 0,
+		  loadingProfile: false,
         // checkForm: true
 	  }
 
@@ -75,21 +103,54 @@ class ProfileDetails extends React.Component {
 
 
 
+   loadProfile = (pid) => {
+	
 
+		let profile = getData().find((el,idx) => {return el.id == pid});
+		let promise = this.props.setData(profile);
 
+	    return promise;
 
+   }
+
+//    comonentWillUnmount() {
+
+// 		if(this.state.profile_id !== 0) {
+
+// 			this.props.('profile_details');
+// 		}
+//    }
 
 	componentWillMount() {
 
+		let profile_id = this.props.profileDetails ? this.props.profileDetails.id : 0;
 
-		let state = this.props.stepState;
-		if(state) this.setState(state);
+			// if(profile_id == 0) {
+			// let state = this.props.stepState;
+			// if(state) this.setState(state);
+			// } else { }
+			this.setState({profile_id: profile_id});
+			this.setState({loadingProfile: profile_id == 0 ? false : true });
+		
 
 		this.props.setStepData('profile_details',4);
 	}
 
+	componentDidMount() {
+
+		if(this.state.profile_id !== 0) {
+
+			this.loadProfile(this.state.profile_id).then((res)=> {
+
+				this.setState({loadingProfile:false});
+
+			});
+		}
+	}
 
 
+
+	// <JpuriWYSIWG loadInProgress={this.props.profileDetails && this.props.profileDetails.id !== 0 ? true : false } name="description" editorState={this.props.description} saveEditorState={this.props.saveEditorState} remainingCharactersBeforeWarning={100} maxLength={4000} />
 
 
 render() {
@@ -99,11 +160,16 @@ let ageFieldStyle = { width: '65px' }
 const errorList = this.props.errorList;
 
 
+let editor = this.state.loadingProfile ? 
+<p>Loading</p> : 
+<JpuriWYSIWG newval='fdf' name="description" editorState={this.props.description} saveEditorState={this.props.saveEditorState} remainingCharactersBeforeWarning={100} maxLength={4001} /> ;
 
 
 	return(
 
-		<div style={{padding:'50px 15px 30px 15px'}} className="stepWrapper">
+		<div style={{padding:'50px 15px 85px 15px'}} className="stepWrapper">
+
+		<h2>{this.props.name}</h2>
 
 		<ErrorList errorList={errorList} />
 
@@ -157,7 +223,7 @@ const errorList = this.props.errorList;
           	<WhiteBorderSelect 
           		name="bodytype" 
           		onChange={this.props.handleInputEvent} 
-          		value={this.props.bodytype} l
+          		value={this.props.bodytype}
           		label="Body Type&nbsp;&nbsp;&nbsp;">
 
            <MenuItem value="">
@@ -179,8 +245,7 @@ const errorList = this.props.errorList;
 
 
 
-
-  	<JpuriWYSIWG name="description" editorState={this.props.stepState.description || {raw: {}, tex: undefined }} saveEditorState={this.props.saveEditorState} remainingCharactersBeforeWarning={100} maxLength={4000} />
+		{editor}
 
   	</div>
   	);

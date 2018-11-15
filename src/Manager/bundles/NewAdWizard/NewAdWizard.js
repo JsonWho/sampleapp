@@ -37,10 +37,10 @@ class NewAdWizard extends React.Component {
 
     	select_cat: {}, 
     	ad_type:{keyVal:{ad_type:null}},
-    	select_profile:{},
+    	select_profile:{keyVal: { selected_option:null}},
     	select_location:{},
     	location_details:{},
-    	profile_details:{}
+    	profile_details: {},
 
     }
 
@@ -48,14 +48,25 @@ class NewAdWizard extends React.Component {
     this.saveStageState = this.saveStageState.bind(this);
     this.nextButtonClicked = this.nextButtonClicked.bind(this);
     this.setStepData = this.setStepData.bind(this);
+    this.clearStepState = this.clearStepState.bind(this);
 
+	}
+
+	clearStepState = (stepName) => {
+
+		this.setState({[stepName]: {}});
 	}
 
 	saveStageState = (data) => {
 
-		let current_step_name = this.state.current_step_name;
+		let promise = new Promise((resolve, reject) => {
 
-		this.setState({[current_step_name]: data });
+			let current_step_name = this.state.current_step_name;
+			this.setState({[current_step_name]: data }, resolve('success'));
+		
+		});
+
+		return promise;
 
 	}
 
@@ -192,11 +203,11 @@ if(this.props.data) {
 
 		<Route exact path="/newadwizard/ad_type"  render={()=> <AdType stepState={this.state.ad_type}  saveStageState={this.saveStageState} setStepData={this.setStepData} />  }/>
 
-        <Route exact path="/newadwizard/select_profile"  render={() => (<SelectProfile nextButtonClicked={this.nextButtonClicked} stepState={this.state.select_profile} data={this.props.data.profiles} saveStageState={this.saveStageState} ad_type={this.state.ad_type.keyVal.ad_type} setStepData={this.setStepData}/>) } />
+        <Route exact path="/newadwizard/select_profile"  render={() => (<SelectProfile clearStepState={this.clearStepState} nextButtonClicked={this.nextButtonClicked} stepState={this.state.select_profile} data={this.props.data.profiles} saveStageState={this.saveStageState} ad_type={this.state.ad_type.keyVal.ad_type} setStepData={this.setStepData}/>) } />
         <Route exact path="/newadwizard/select_location"  render={() => (<SelectLocation nextButtonClicked={this.nextButtonClicked} stepState={this.state.select_location} data={this.props.data.locations} saveStageState={this.saveStageState} ad_type={this.state.ad_type.keyVal.ad_type} setStepData={this.setStepData}/>) } />
 
         <Route exact path="/newadwizard/location_details"  render={() => <LocationDetailsWithValidation setStepData={this.setStepData} stepState={this.state.location_details} saveStageState={this.saveStageState} /> } />
-        <Route exact path="/newadwizard/profile_details"  render={() => <ProfileDetailsWithValidation  setStepData={this.setStepData} stepState={this.state.profile_details} saveStageState={this.saveStageState} /> } />
+        <Route exact path="/newadwizard/profile_details"  render={() => <ProfileDetailsWithValidation profileDetails={this.state.select_profile.keyVal.selected_option}  setStepData={this.setStepData} stepState={this.state.profile_details} saveStageState={this.saveStageState} /> } />
 
         </Switch>
 
